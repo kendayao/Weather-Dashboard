@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    
+    width: 100%;
 }
 .navbar{
     text-align: center;
@@ -12,3 +12,7 @@ body{
     padding: 15px;
 }
 
+.city-search-form{
+    margin-top: 2%;
+    margin-left: 2%;
+}
