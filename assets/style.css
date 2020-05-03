@@ -4,15 +4,109 @@ body{
 }
 .navbar{
     text-align: center;
-    font-size: 40px;
     font-family: 'Paytone One', sans-serif;
     background-color: #005082;
     color: white;
-    margin-top: 0;
+    margin: 0 auto;
     padding: 15px;
+    
 }
+.navbar-brand{
+    font-size: 30px 
+}
+
 
 .city-search-form{
     margin-top: 2%;
     margin-left: 2%;
+    float: left;
+    clear: both;
+    height: 100%;
+    width: 20%;
 }
+
+.city-input{
+
+    margin-top: 10px;
+}
+
+.container{
+    margin-top: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body{
+    margin: 0;
+    width: 100%;
+}
+.navbar{
+    text-align: center;
+    font-family: 'Paytone One', sans-serif;
+    background-color: #005082;
+    color: white;
+    margin: 0 auto;
+    padding: 15px;
+    
+}
+.navbar-brand{
+    font-size: 100px 
+}
+
+
+.city-search-form{
+    margin-top: 2%;
+    margin-left: 2%;
+    float: left;
+    clear: both;
+    height: 100%;
+    width: 20%;
+}
+
+.city-input{
+
+    margin-top: 10px;
+}
+
+
+.current-weather-display{
+    width: 75%;
+    margin-top: 10px;
+    border: 2px solid black;
+    float: right;
+} */
