@@ -3,11 +3,40 @@
 
 $("#searchbutton").on("click", function(event){
     event.preventDefault();
+
+    
+
+
+
+
+
+
+
+
+
+
+
     var city =$("input").val();
     var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     
     $("#current-weather-display").empty();
+    $("#future-weather-display").empty();
+
+    var buttonEl = $("<button>" + city + "</button>")
+    
+    $("form").append(buttonEl)
+    var brEl =$("<br>")
+    $("form").append(brEl)
+
+
+
+
+
+
+
+
+
 
 
 $.ajax({
@@ -72,7 +101,7 @@ var city =$("input").val();
             console.log(queryURL)
         console.log (response)
 
-        });
+       
 
 var today = new Date();
 var dd = today.getDate();
@@ -90,48 +119,98 @@ var day3= (mm + "/" + dd3 + "/" + yyyy)
 var day4= (mm + "/" + dd4 + "/" + yyyy)
 var day5= (mm + "/" + dd5 + "/" + yyyy)
 
-        h3El=$("<h3>")
+    var h3El=$("<h3>")
     h3El.text("5-Day Forcast")
     $("#future-weather-display").append(h3El);
 
 
-    divEl1=$("<div>")
+    var divEl1=$("<div>")
     divEl1.attr("class", "day1")
     $("#future-weather-display").append(divEl1);
-    pEl=$("<p>")
-    pEl.text(day1)
-    $(divEl1).append(pEl);
+    pEldate1=$("<p>")
+    pEldate1.text(day1)
+    $(divEl1).append(pEldate1);
+    var imageEl1 =$("<img>")
+    imageEl1.attr("src", "http://openweathermap.org/img/wn/" + response.list[4].weather[0].icon + "@2x.png")
+    imageEl1.attr("class", "future-weather-icon")
+    $(divEl1).append(imageEl1)
+    var pEltemp1 =$("<p>")
+    pEltemp1.text("Temp: " + response.list[4].main.temp)
+    $(divEl1).append(pEltemp1)
+    var pElhum1 =$("<p>")
+    pElhum1.text("Humidity: " + response.list[4].main.humidity)
+    $(divEl1).append(pElhum1)
 
-    divEl2=$("<div>")
+
+    var divEl2=$("<div>")
     divEl2.attr("class", "day2")
     $("#future-weather-display").append(divEl2);
-    pEl2=$("<p>")
-    pEl2.text(day2)
-    $(divEl2).append(pEl2);
+    pEldate2=$("<p>")
+    pEldate2.text(day2)
+    $(divEl2).append(pEldate2);
+    var imageEl2 =$("<img>")
+    imageEl2.attr("src", "http://openweathermap.org/img/wn/" + response.list[12].weather[0].icon + "@2x.png")
+    imageEl2.attr("class", "future-weather-icon")
+    $(divEl2).append(imageEl2)
+    var pEltemp2 =$("<p>")
+    pEltemp2.text("Temp: " + response.list[12].main.temp)
+    $(divEl2).append(pEltemp2)
+    var pElhum2 =$("<p>")
+    pElhum2.text("Humidity: " + response.list[12].main.humidity)
+    $(divEl2).append(pElhum2)
 
-    divEl3=$("<div>")
+    var divEl3=$("<div>")
     divEl3.attr("class", "day3")
     $("#future-weather-display").append(divEl3);
-    pEl3=$("<p>")
-    pEl3.text(day3)
-    $(divEl3).append(pEl3);
+    pEldate3=$("<p>")
+    pEldate3.text(day3)
+    $(divEl3).append(pEldate3);
+    var imageEl3 =$("<img>")
+    imageEl3.attr("src", "http://openweathermap.org/img/wn/" + response.list[20].weather[0].icon + "@2x.png")
+    imageEl3.attr("class", "future-weather-icon")
+    $(divEl3).append(imageEl3)
+    var pEltemp3 =$("<p>")
+    pEltemp3.text("Temp: " + response.list[20].main.temp)
+    $(divEl3).append(pEltemp3)
+    var pElhum3 =$("<p>")
+    pElhum3.text("Humidity: " + response.list[20].main.humidity)
+    $(divEl3).append(pElhum3)
 
-    divEl4=$("<div>")
+    var divEl4=$("<div>")
     divEl4.attr("class", "day4")
     $("#future-weather-display").append(divEl4);
-    pEl4=$("<p>")
-    pEl4.text(day4)
-    $(divEl4).append(pEl4);
+    pEldate4=$("<p>")
+    pEldate4.text(day4)
+    $(divEl4).append(pEldate4);
+    var imageEl4 =$("<img>")
+    imageEl4.attr("src", "http://openweathermap.org/img/wn/" + response.list[28].weather[0].icon + "@2x.png")
+    imageEl4.attr("class", "future-weather-icon")
+    $(divEl4).append(imageEl4)
+    var pEltemp4 =$("<p>")
+    pEltemp4.text("Temp: " + response.list[28].main.temp)
+    $(divEl4).append(pEltemp4)
+    var pElhum4 =$("<p>")
+    pElhum4.text("Humidity: " + response.list[28].main.humidity)
+    $(divEl4).append(pElhum4)
 
-    divEl5=$("<div>")
+    var divEl5=$("<div>")
     divEl5.attr("class", "day5")
     $("#future-weather-display").append(divEl5);
-    pEl5=$("<p>")
-    pEl5.text(day5)
-    $(divEl5).append(pEl5);
-    
+    pEldate5=$("<p>")
+    pEldate5.text(day5)
+    $(divEl5).append(pEldate5);
+    var imageEl5 =$("<img>")
+    imageEl5.attr("src", "http://openweathermap.org/img/wn/" + response.list[36].weather[0].icon + "@2x.png")
+    imageEl5.attr("class", "future-weather-icon")
+    $(divEl5).append(imageEl5)
+    var pEltemp5 =$("<p>")
+    pEltemp5.text("Temp: " + response.list[36].main.temp)
+    $(divEl5).append(pEltemp5)
+    var pElhum5 =$("<p>")
+    pElhum5.text("Humidity: " + response.list[36].main.humidity)
+    $(divEl5).append(pElhum5)
 
- 
+});
 
 
 });
