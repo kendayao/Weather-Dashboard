@@ -1,43 +1,36 @@
 
+recentSearch();
 
-
+var cityClicked;
 $("#searchbutton").on("click", function(event){
     event.preventDefault();
+    buttonCreation();
+    apiCall();
+});
 
+$(".cityButton").on("click", function(event){
+            
     
+    event.preventDefault();
+    cityClicked =($(this).attr("cityname"));
+    console.log(cityClicked)
+    apiCall();
+    });
 
 
 
 
-
-
-
-
-
-
-
-    var city =$("input").val();
-    var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
-    
+function apiCall(){
     $("#current-weather-display").empty();
     $("#future-weather-display").empty();
 
-    var buttonEl = $("<button>" + city + "</button>")
-    
-    $("form").append(buttonEl)
-    var brEl =$("<br>")
-    $("form").append(brEl)
-
-
-
-
-
-
-
-
-
-
+    if ($("input").val()==""){
+    city = cityClicked
+    }else{
+    city = $("input").val();    
+    }
+    var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
 
 $.ajax({
 
@@ -46,9 +39,6 @@ method: "GET"
 
 })
 .then(function(response){
-    console.log(queryURL)
-console.log (response)
-
 var temperature = response.main.temp;
 var humidity = response.main.humidity;
 var windSpeed= response.wind.speed;
@@ -63,8 +53,6 @@ var currentDate = (mm + "/" + dd + "/" + yyyy)
 h2El=$("<h2>")
 h2El.text(city + " (" + currentDate + ")")
 $("#current-weather-display").append(h2El);
-
-
 
 imageEl=$("<img>")
 imageEl.attr("src", "http://openweathermap.org/img/wn/" + imageIcon + "@2x.png")
@@ -83,25 +71,18 @@ pEl3=$("<p>")
 pEl3.text("Wind Speed: " + windSpeed)
 $("#current-weather-display").append(pEl3)
 
-
-
 });
 
-var city =$("input").val();
     var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
     
     $.ajax({
-
         url: queryURL,
         method: "GET"
-        
         })
         .then(function(response){
             console.log(queryURL)
         console.log (response)
-
-       
 
 var today = new Date();
 var dd = today.getDate();
@@ -212,5 +193,41 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
 });
 
+}
 
-});
+
+function recentSearch(){
+    storedCity = (JSON.parse(localStorage.getItem("storedCity"))) || []
+
+    for (var i=0; i<storedCity.length; i++){
+        var buttonEl = $("<button>" + storedCity[i]+ "</button>")
+     buttonEl.attr("cityname", storedCity[i])
+     buttonEl.attr("class", "cityButton")
+     $("form").append(buttonEl)
+     var brEl =$("<br>")
+     $("form").append(brEl)
+    }
+};
+
+function buttonCreation(){
+    
+        var city =$("input").val();
+        storedCity.push(city)
+        localStorage.setItem("storedCity", JSON.stringify(storedCity))
+
+       var buttonEl = $("<button>" +  city + "</button>")
+
+
+    buttonEl.attr("cityname", city)
+    buttonEl.attr("class", "cityButton")
+    
+    $("form").append(buttonEl)
+    var brEl =$("<br>")
+    $("form").append(brEl)
+
+
+    }
+
+    
+    
+
