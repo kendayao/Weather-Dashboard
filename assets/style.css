@@ -28,6 +28,7 @@ body{
 .city-input{
 
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .container{
@@ -94,14 +95,29 @@ h2 {
     height: 40px;
 }
 
+.card{
+    border: none;
+}
 
 
 
+.cityButton{
+background-color: #005082 ;
+color: white;
+font-size: 10px;
+border-radius: 4px;
+width: 50%;
+}
 
 
 
-
-
+.uvindex{
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 20%;
+    padding-left: 5px;
+}
 
 
 

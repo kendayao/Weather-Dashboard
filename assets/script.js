@@ -2,6 +2,7 @@
 recentSearch();
 
 var cityClicked;
+var city;
 $("#searchbutton").on("click", function(event){
     event.preventDefault();
     buttonCreation();
@@ -16,8 +17,6 @@ $(".cityButton").on("click", function(event){
     console.log(cityClicked)
     apiCall();
     });
-
-
 
 
 function apiCall(){
@@ -39,6 +38,19 @@ method: "GET"
 
 })
 .then(function(response){
+    
+    var lat = response.coord.lat
+    var lon = response.coord.lon
+//     var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=bb06c0b8789f5256fcbbe492b33425e3"
+
+//     $.ajax({
+
+//         url:queryURL,
+//         method: "GET"
+//     })
+// .then(function(response){
+
+
 var temperature = response.main.temp;
 var humidity = response.main.humidity;
 var windSpeed= response.wind.speed;
@@ -71,7 +83,35 @@ pEl3=$("<p>")
 pEl3.text("Wind Speed: " + windSpeed)
 $("#current-weather-display").append(pEl3)
 
+hrEl = $("<hr>")
+$("#current-weather-display").append(hrEl)
+
+
+var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=bb06c0b8789f5256fcbbe492b33425e3"
+
+    $.ajax({
+
+        url:queryURL,
+        method: "GET"
+    })
+.then(function(response){
+ uvIndex=response.value
+ pEluv=$("<p>")
+pEluv.text("UV Index: " + uvIndex)
+pEluv.attr("class", "uvindex")
+
+$(pEl3).append(pEluv)
+if(uvIndex<5){
+    $(".uvindex").css("background-color", "green");
+}else if(uvIndex>5 && uvIndex<7){
+    $(".uvindex").css("background-color", "yellow");
+}else{
+    $(".uvindex").css("background-color", "red");
+}
+
 });
+});
+
 
     var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
@@ -102,12 +142,12 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
     var h3El=$("<h3>")
     h3El.text("5-Day Forcast")
-    $("#future-weather-display").append(h3El);
+    $("#current-weather-display").append(h3El);
 
 
     var divEl1=$("<div>")
     divEl1.attr("class", "day1")
-    $("#future-weather-display").append(divEl1);
+    $("#current-weather-display").append(divEl1);
     pEldate1=$("<p>")
     pEldate1.text(day1)
     $(divEl1).append(pEldate1);
@@ -125,7 +165,7 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
     var divEl2=$("<div>")
     divEl2.attr("class", "day2")
-    $("#future-weather-display").append(divEl2);
+    $("#current-weather-display").append(divEl2);
     pEldate2=$("<p>")
     pEldate2.text(day2)
     $(divEl2).append(pEldate2);
@@ -142,7 +182,7 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
     var divEl3=$("<div>")
     divEl3.attr("class", "day3")
-    $("#future-weather-display").append(divEl3);
+    $("#current-weather-display").append(divEl3);
     pEldate3=$("<p>")
     pEldate3.text(day3)
     $(divEl3).append(pEldate3);
@@ -159,7 +199,7 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
     var divEl4=$("<div>")
     divEl4.attr("class", "day4")
-    $("#future-weather-display").append(divEl4);
+    $("#current-weather-display").append(divEl4);
     pEldate4=$("<p>")
     pEldate4.text(day4)
     $(divEl4).append(pEldate4);
@@ -176,7 +216,7 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
 
     var divEl5=$("<div>")
     divEl5.attr("class", "day5")
-    $("#future-weather-display").append(divEl5);
+    $("#current-weather-display").append(divEl5);
     pEldate5=$("<p>")
     pEldate5.text(day5)
     $(divEl5).append(pEldate5);
@@ -192,9 +232,8 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
     $(divEl5).append(pElhum5)
 
 });
-
+// });
 }
-
 
 function recentSearch(){
     storedCity = (JSON.parse(localStorage.getItem("storedCity"))) || []
@@ -214,7 +253,7 @@ function buttonCreation(){
         var city =$("input").val();
         storedCity.push(city)
         localStorage.setItem("storedCity", JSON.stringify(storedCity))
-
+        
        var buttonEl = $("<button>" +  city + "</button>")
 
 
@@ -231,3 +270,15 @@ function buttonCreation(){
     
     
 
+    var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37&appid=bb06c0b8789f5256fcbbe492b33425e3"
+    
+    "https://api.openweathermap.org/data/2.5/uvi?q=Dallas&appid=bb06c0b8789f5256fcbbe492b33425e3"
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        .then(function(response){
+            console.log(response)
+        });
