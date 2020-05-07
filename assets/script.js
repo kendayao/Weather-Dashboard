@@ -5,14 +5,19 @@ var cityClicked;
 var city;
 $("#searchbutton").on("click", function(event){
     event.preventDefault();
+    if ($(".city-input").val()==""){
+        alert("Please enter a city")
+    }else{
+    
     buttonCreation();
     apiCall();
+}
 });
 
 $(".cityButton").on("click", function(event){
-            
-    
+  
     event.preventDefault();
+    
     cityClicked =($(this).attr("cityname"));
     console.log(cityClicked)
     apiCall();
@@ -20,8 +25,9 @@ $(".cityButton").on("click", function(event){
 
 
 function apiCall(){
+    
     $("#current-weather-display").empty();
-    $("#future-weather-display").empty();
+    
 
     if ($("input").val()==""){
     city = cityClicked
@@ -230,7 +236,7 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
     var pElhum5 =$("<p>")
     pElhum5.text("Humidity: " + response.list[36].main.humidity)
     $(divEl5).append(pElhum5)
-
+    $(".city-input").val("");
 });
 // });
 }
@@ -242,9 +248,9 @@ function recentSearch(){
         var buttonEl = $("<button>" + storedCity[i]+ "</button>")
      buttonEl.attr("cityname", storedCity[i])
      buttonEl.attr("class", "cityButton")
-     $("form").append(buttonEl)
+     $("#previous-city").append(buttonEl)
      var brEl =$("<br>")
-     $("form").append(brEl)
+     $("#previous-city").append(brEl)
     }
 };
 
@@ -254,31 +260,41 @@ function buttonCreation(){
         storedCity.push(city)
         localStorage.setItem("storedCity", JSON.stringify(storedCity))
         
-       var buttonEl = $("<button>" +  city + "</button>")
+       var buttonEl1 = $("<button>" +  city + "</button>")
 
 
-    buttonEl.attr("cityname", city)
-    buttonEl.attr("class", "cityButton")
+    buttonEl1.attr("cityname", city)
+    buttonEl1.attr("class", "cityButton")
     
-    $("form").append(buttonEl)
-    var brEl =$("<br>")
-    $("form").append(brEl)
+    $("#previous-city").append(buttonEl1)
+    var brEl1 =$("<br>")
+    $("#previous-city").append(brEl1)
 
 
     }
 
-    
+
+    $("#clearbutton").on("click", function(){
+
+        localStorage.removeItem("storedCity")
+        $("#previous-city").empty();
+
+    });
     
 
-    var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
-    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37&appid=bb06c0b8789f5256fcbbe492b33425e3"
-    
-    "https://api.openweathermap.org/data/2.5/uvi?q=Dallas&appid=bb06c0b8789f5256fcbbe492b33425e3"
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-        })
-        .then(function(response){
-            console.log(response)
-        });
+
+    
+
+    // var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
+    // var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37&appid=bb06c0b8789f5256fcbbe492b33425e3"
+    
+    // "https://api.openweathermap.org/data/2.5/uvi?q=Dallas&appid=bb06c0b8789f5256fcbbe492b33425e3"
+
+    // $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    //     })
+    //     .then(function(response){
+    //         console.log(response)
+    //     });
