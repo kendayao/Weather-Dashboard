@@ -5,9 +5,9 @@ This is a weather dashboard. Languages used for this project are HTML, Bootstrap
 
 ## Usage
 
--To start, type in a city name in the text input area.
--Click on search to display the current weather conditions for that city.
--Below the current weather display will show the 5 day weather forecast.
--When a city is typed in and searched, it is saved in the browsers local storage so it can be retreived when the browser is reopened.
--Saved searched cities will appear below the text area and can be clicked on to view weather conditions for that city.
--The list of saved cities can be cleared by clicking on the clear past searches button. This will also removed the saved cities from local storage.
+- To start, type in a city name in the text input area.
+- Click on search to display the current weather conditions for that city.
+- Below the current weather display will show the 5 day weather forecast.
+- When a city is typed in and searched, it is saved in the browsers local storage so it can be retreived when the browser is reopened.
+- Saved searched cities will appear below the text area and can be clicked on to view weather conditions for that city.
+- The list of saved cities can be cleared by clicking on the clear past searches button. This will also removed the saved cities from local storage.
