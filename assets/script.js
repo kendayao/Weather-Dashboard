@@ -278,6 +278,7 @@ function buttonCreation(){
 
         localStorage.removeItem("storedCity")
         $("#previous-city").empty();
+        location.reload();
 
     });
     
