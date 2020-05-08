@@ -1,8 +1,11 @@
 
+// check local storage for any saved cities to display on page
 recentSearch();
 
 var cityClicked;
 var city;
+
+// When search button is clicked, creates a button for the city and calls to API
 $("#searchbutton").on("click", function(event){
     event.preventDefault();
     if ($(".city-input").val()==""){
@@ -14,6 +17,7 @@ $("#searchbutton").on("click", function(event){
 }
 });
 
+// When saved city button is city clicked,  calls to weather API
 $(".cityButton").on("click", function(event){
   
     event.preventDefault();
@@ -24,97 +28,89 @@ $(".cityButton").on("click", function(event){
     });
 
 
+// function to call open weather map API for current and future weather and UV index
 function apiCall(){
     
     $("#current-weather-display").empty();
-    
-
     if ($("input").val()==""){
     city = cityClicked
     }else{
     city = $("input").val();    
     }
+
     var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
-
-$.ajax({
-
-url: queryURL,
-method: "GET"
-
-})
-.then(function(response){
+    // ajax call to get current weather condition
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    }).then(function(response){
     
     var lat = response.coord.lat
     var lon = response.coord.lon
-//     var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=bb06c0b8789f5256fcbbe492b33425e3"
 
-//     $.ajax({
+    var temperature = response.main.temp;
+    var humidity = response.main.humidity;
+    var windSpeed= response.wind.speed;
+    var imageIcon = response.weather[0].icon
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    var currentDate = (mm + "/" + dd + "/" + yyyy)
 
-//         url:queryURL,
-//         method: "GET"
-//     })
-// .then(function(response){
+    // display current date
+    h2El=$("<h2>")
+    h2El.text(city + " (" + currentDate + ")")
+    $("#current-weather-display").append(h2El);
 
+    // display weather icon
+    imageEl=$("<img>")
+    imageEl.attr("src", "http://openweathermap.org/img/wn/" + imageIcon + "@2x.png")
+    imageEl.attr("class", "weather-icon")
+    $("#current-weather-display").append(imageEl)
 
-var temperature = response.main.temp;
-var humidity = response.main.humidity;
-var windSpeed= response.wind.speed;
-var imageIcon = response.weather[0].icon
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-var currentDate = (mm + "/" + dd + "/" + yyyy)
+    // display current temperature
+    pEl1=$("<p>")
+    pEl1.text("Temperature: " + temperature)
+    $("#current-weather-display").append(pEl1)
 
+    // display current humidity
+    pEl2=$("<p>")
+    pEl2.text("Humidity: " + humidity)
+    $("#current-weather-display").append(pEl2)
 
-h2El=$("<h2>")
-h2El.text(city + " (" + currentDate + ")")
-$("#current-weather-display").append(h2El);
+    // display current wind speed
+    pEl3=$("<p>")
+    pEl3.text("Wind Speed: " + windSpeed)
+    $("#current-weather-display").append(pEl3)
 
-imageEl=$("<img>")
-imageEl.attr("src", "http://openweathermap.org/img/wn/" + imageIcon + "@2x.png")
-imageEl.attr("class", "weather-icon")
-$("#current-weather-display").append(imageEl)
-
-pEl1=$("<p>")
-pEl1.text("Temperature: " + temperature)
-$("#current-weather-display").append(pEl1)
-
-pEl2=$("<p>")
-pEl2.text("Humidity: " + humidity)
-$("#current-weather-display").append(pEl2)
-
-pEl3=$("<p>")
-pEl3.text("Wind Speed: " + windSpeed)
-$("#current-weather-display").append(pEl3)
-
-hrEl = $("<hr>")
-$("#current-weather-display").append(hrEl)
+    // horizontal line
+    hrEl = $("<hr>")
+    $("#current-weather-display").append(hrEl)
 
 
-var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=bb06c0b8789f5256fcbbe492b33425e3"
-
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=bb06c0b8789f5256fcbbe492b33425e3"
+    // AJAX call to UV index API
     $.ajax({
 
         url:queryURL,
         method: "GET"
-    })
-.then(function(response){
- uvIndex=response.value
- pEluv=$("<p>")
-pEluv.text("UV Index: " + uvIndex)
-pEluv.attr("class", "uvindex")
-
-$(pEl3).append(pEluv)
-if(uvIndex<5){
+    }).then(function(response){
+        // display UV index
+    uvIndex=response.value
+    pEluv=$("<p>")
+    pEluv.text("UV Index: " + uvIndex)
+    pEluv.attr("class", "uvindex")
+    $(pEl3).append(pEluv)
+    // styling of UV index based on current index
+    if(uvIndex<5){
     $(".uvindex").css("background-color", "green");
-}else if(uvIndex>5 && uvIndex<7){
+    }else if(uvIndex>5 && uvIndex<7){
     $(".uvindex").css("background-color", "yellow");
-}else{
+    }else{
     $(".uvindex").css("background-color", "red");
 }
-
 });
 });
 
@@ -130,27 +126,29 @@ if(uvIndex<5){
             console.log(queryURL)
         console.log (response)
 
-var today = new Date();
-var dd = today.getDate();
-var dd1 = today.getDate()+1;
-var dd2 = today.getDate()+2;
-var dd3= today.getDate()+3;
-var dd4 = today.getDate()+4;
-var dd5 = today.getDate()+5;
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-var currentDate = (mm + "/" + dd + "/" + yyyy)
-var day1= (mm + "/" + dd1 + "/" + yyyy)
-var day2= (mm + "/" + dd2 + "/" + yyyy)
-var day3= (mm + "/" + dd3 + "/" + yyyy)
-var day4= (mm + "/" + dd4 + "/" + yyyy)
-var day5= (mm + "/" + dd5 + "/" + yyyy)
+        // get future date
+    var today = new Date();
+    var dd = today.getDate();
+    var dd1 = today.getDate()+1;
+    var dd2 = today.getDate()+2;
+    var dd3= today.getDate()+3;
+    var dd4 = today.getDate()+4;
+    var dd5 = today.getDate()+5;
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    var currentDate = (mm + "/" + dd + "/" + yyyy)
+    var day1= (mm + "/" + dd1 + "/" + yyyy)
+    var day2= (mm + "/" + dd2 + "/" + yyyy)
+    var day3= (mm + "/" + dd3 + "/" + yyyy)
+    var day4= (mm + "/" + dd4 + "/" + yyyy)
+    var day5= (mm + "/" + dd5 + "/" + yyyy)
 
+    // display 5 day forecast header
     var h3El=$("<h3>")
     h3El.text("5-Day Forcast")
     $("#current-weather-display").append(h3El);
 
-
+    // display date, weather icon, temperature, and humidity for 5 day forecast
     var divEl1=$("<div>")
     divEl1.attr("class", "day1")
     $("#current-weather-display").append(divEl1);
@@ -167,7 +165,6 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
     var pElhum1 =$("<p>")
     pElhum1.text("Humidity: " + response.list[4].main.humidity)
     $(divEl1).append(pElhum1)
-
 
     var divEl2=$("<div>")
     divEl2.attr("class", "day2")
@@ -238,14 +235,15 @@ var day5= (mm + "/" + dd5 + "/" + yyyy)
     $(divEl5).append(pElhum5)
     $(".city-input").val("");
 });
-// });
+
 }
 
+// function to check for any saved cities in local storage and creates a button for them
 function recentSearch(){
     storedCity = (JSON.parse(localStorage.getItem("storedCity"))) || []
 
     for (var i=0; i<storedCity.length; i++){
-        var buttonEl = $("<button>" + storedCity[i]+ "</button>")
+    var buttonEl = $("<button>" + storedCity[i]+ "</button>")
      buttonEl.attr("cityname", storedCity[i])
      buttonEl.attr("class", "cityButton")
      $("#previous-city").append(buttonEl)
@@ -254,32 +252,26 @@ function recentSearch(){
     }
 };
 
+// creates a button for each city searched
 function buttonCreation(){
-    
-        var city =$("input").val();
-        storedCity.push(city)
-        localStorage.setItem("storedCity", JSON.stringify(storedCity))
+    var city =$("input").val();
+    storedCity.push(city)
+    localStorage.setItem("storedCity", JSON.stringify(storedCity))
         
-       var buttonEl1 = $("<button>" +  city + "</button>")
-
-
+    var buttonEl1 = $("<button>" +  city + "</button>")
     buttonEl1.attr("cityname", city)
     buttonEl1.attr("class", "cityButton")
     
     $("#previous-city").append(buttonEl1)
     var brEl1 =$("<br>")
     $("#previous-city").append(brEl1)
-
-
     }
 
-
+    // clear button function
     $("#clearbutton").on("click", function(){
-
         localStorage.removeItem("storedCity")
         $("#previous-city").empty();
         location.reload();
-
     });
     
 
