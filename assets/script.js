@@ -287,15 +287,4 @@ function buttonCreation(){
 
     
 
-    // var apiKey = "bb06c0b8789f5256fcbbe492b33425e3";
-    // var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37&appid=bb06c0b8789f5256fcbbe492b33425e3"
     
-    // "https://api.openweathermap.org/data/2.5/uvi?q=Dallas&appid=bb06c0b8789f5256fcbbe492b33425e3"
-
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    //     })
-    //     .then(function(response){
-    //         console.log(response)
-    //     });
