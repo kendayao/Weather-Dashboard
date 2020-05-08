@@ -2,6 +2,8 @@ body{
     margin: 0;
     width: 100%;
 }
+
+/* header styling */
 .navbar{
     text-align: center;
     font-family: 'Paytone One', sans-serif;
@@ -16,17 +18,7 @@ body{
 }
 
 
-.city-search-form{
-    margin-top: 2%;
-    margin-left: 2%;
-    float: left;
-    clear: both;
-    height: 100%;
-    width: 20%;
-}
-
 .city-input{
-
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -35,10 +27,12 @@ body{
     margin-top: 2%;
 }
 
+/* Current weather header styling */
 h2 {
     display: inline-block;
 }
 
+/* 5 day forecast styling */
 .day1{
     border: 1px solid black;
     width: 18%;
@@ -90,17 +84,12 @@ h2 {
     color: white;
 }
 
-.future-weather-icon{
-    width: 40px;
-    height: 40px;
-}
-
+/* card styling */
 .card{
     border: none;
 }
 
-
-
+/* saved city buttons styling */
 .cityButton{
 background-color: #005082 ;
 color: white;
@@ -110,8 +99,7 @@ width: 50%;
 margin-bottom: 5px;
 }
 
-
-
+/* UV index styling */
 .uvindex{
     margin-top: 10px;
     border: 1px solid black;
@@ -120,6 +108,7 @@ margin-bottom: 5px;
     padding-left: 5px;
 }
 
+/* clear button */
 #clearbutton{
     border-radius: 4px;
     background-color:lightgray;
@@ -127,11 +116,10 @@ margin-bottom: 5px;
     font-size: 10px;
 }
 
+/* search button */
 #searchbutton{
     color: white;
     background-color: #005082;
-    
-
 }
 
 

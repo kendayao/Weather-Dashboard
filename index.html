@@ -4,82 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <!-- jquery link -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Google Font link -->
     <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
+    <!-- Bootstrap Link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
     
 </head>
 <body>
-    
-        <nav class="navbar">
-            <span class="navbar-brand mx-auto">Weather Dashboard</span>
-        </nav>
-
-        
-
-
+    <!-- Header section -->
+     <nav class="navbar">
+        <span class="navbar-brand mx-auto">Weather Dashboard</span>
+     </nav>
         <div class="container">
             <div class="row">
+                <!-- left side search city area -->
               <div class="col-md-4">
                  <div class="card">
-            <div class="card-body">
-                <form>
-                    <label for="city-name">Type in a City</label><br>
-                    <input class="city-input" type="text" placeholder="City Name" >
-                    <button id="searchbutton">Search</button>
-                    <div id="previous-city"></div>
-                </form>
-                <button id="clearbutton">clear past searches</button>
-                
-            </div>
-          </div>
+                     <div class="card-body">
+                         <form>
+                            <label for="city-name">Type in a City</label><br>
+                            <input class="city-input" type="text" placeholder="City Name" >
+                            <button id="searchbutton">Search</button>
+                             <div id="previous-city"></div>
+                        </form>
+                        <button id="clearbutton">clear past searches</button>
+                     </div>
+                 </div>
               </div>
-              <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body" id="current-weather-display">
-                        
+              <!-- right side weather display area -->
+                 <div class="col-md-8">
+                     <div class="card">
+                        <div class="card-body" id="current-weather-display">
                     </div>
                   </div>
               </div>
             </div>
-           
-          </div>
-          
-
-          <!-- <div class="container">
-            <div class="row justify-content-end">
-              <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body" id="future-weather-display">
-                        
-                    </div>
-                  </div>
-            
-              </div>
-            </div>
-        </div> -->
-        <!-- <div class="card">
-            <div class="card-body">
-                <form>
-                    <label for="city-name">Type in a City</label><br>
-                    <input class="city-input" type="text" placeholder="City Name" >
-                    <button id="searchbutton">Search</button>
-                </form>
-            </div>
-          </div> -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
+        </div>
+        <!-- javascript  -->
     <script src="assets/script.js"></script>
 </body>
 </html>
@@ -91,20 +56,3 @@
 
 
 
-<!-- <aside class="city-search-form">
-    <form>
-        <label for="city-name">Type in a City</label><br>
-        <input class="city-input" type="text" placeholder="City Name" >
-        <button id="searchbutton">Search</button>
-    </form>
-    </aside>
-
-    <section class="current-weather-display">
-
-        Hi
-
-    </section>
-
-    <section class="future-weather-display">
-       
-    </section> -->
