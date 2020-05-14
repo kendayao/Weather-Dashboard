@@ -1,13 +1,70 @@
-# Weather-Dashboard
+# Weather Dashboard
 
 
-This is a weather dashboard. Languages used for this project are HTML, Bootstrap, CSS, Javascript, and Jquery. This project uses a third party party API from open weather map to get current and future weather conditions for a specific city. Three API's were used from open weather map to get the current condition of a city, to get future weather conditions, and to get the UV index. 
+![](https://avatars3.githubusercontent.com/u/62568395?v=4)
+
+## Description
+
+
+This is a weather dasboard. Languages used for this project are HTML, Bootstrap, CSS, Javascript, and JQUery. A user will type in their city and then the browser will display current and future weather for that city.
+
+
+## Table of Contents
+
+* [Description](#description)
+* [User Story](#user-story)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+* [Deployed Application URL](#deployed-application-URL)
+
+
+
+## User Story
+
+
+AS A traveler, I WANT to see the weather outlook for multiple cities SO THAT i can plan a trip accordingly.
+
+
+## Installation
+
+
+There are no installation steps. Just begin by loading the browser and typing in a city or click on a saved city.
+
 
 ## Usage
 
-- To start, type in a city name in the text input area.
-- Click on search to display the current weather conditions for that city.
-- Below the current weather display will show the 5 day weather forecast.
-- When a city is typed in and searched, it is saved in the browsers local storage so it can be retreived when the browser is reopened.
-- Saved searched cities will appear below the text area and can be clicked on to view weather conditions for that city.
-- The list of saved cities can be cleared by clicking on the clear past searches button. This will also removed the saved cities from local storage.
+
+To start, type in a city name in the text input area. Click on search to display the current weather conditions for that city. Below the current weather display will show the 5 day weather forecast.
+
+
+## License
+
+
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+
+
+## Contributing
+
+
+Please follow standard contributing guidelines
+
+
+## Tests
+
+
+No tests to run
+
+
+## Questions
+
+
+For any questions, please contact kendayao at kendayao@gmail.com
+
+## Deployed Application URL
+
+
+https://kendayao.github.io/Weather-Dashboard/
