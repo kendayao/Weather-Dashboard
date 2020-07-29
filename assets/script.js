@@ -126,22 +126,44 @@ function apiCall(){
             console.log(queryURL)
         console.log (response)
 
-        // get future date
+    // get future date
+    // today+1
     var today = new Date();
-    var dd = today.getDate();
-    var dd1 = today.getDate()+1;
-    var dd2 = today.getDate()+2;
-    var dd3= today.getDate()+3;
-    var dd4 = today.getDate()+4;
-    var dd5 = today.getDate()+5;
-    var mm = today.getMonth()+1; 
+    var date1=new Date(today.setDate(today.getDate()+1))
+    var dd1 = date1.getDate();
+    var mm1 = date1.getMonth()+1
+
+    // today+2
+    var today = new Date();
+    var date2=new Date(today.setDate(today.getDate()+2))
+    console.log(date2)
+    var dd2 = date2.getDate();
+    var mm2 = date2.getMonth()+1
+    
+    // today+3
+    var today = new Date();
+    var date3=new Date(today.setDate(today.getDate()+3))
+    var dd3= date3.getDate();
+    var mm3 = date3.getMonth()+1
+    
+    // today+4
+    var today = new Date();
+    var date4=new Date(today.setDate(today.getDate()+4))
+    var dd4 = date4.getDate();
+    var mm4 = date4.getMonth()+1
+    
+    //today+5
+    var today = new Date();
+    var date5=new Date(today.setDate(today.getDate()+5))
+    var dd5 = date5.getDate();
+    var mm5 = date5.getMonth()+1
+
     var yyyy = today.getFullYear();
-    var currentDate = (mm + "/" + dd + "/" + yyyy)
-    var day1= (mm + "/" + dd1 + "/" + yyyy)
-    var day2= (mm + "/" + dd2 + "/" + yyyy)
-    var day3= (mm + "/" + dd3 + "/" + yyyy)
-    var day4= (mm + "/" + dd4 + "/" + yyyy)
-    var day5= (mm + "/" + dd5 + "/" + yyyy)
+    var day1= (mm1 + "/" + dd1 + "/" + yyyy)
+    var day2= (mm2 + "/" + dd2 + "/" + yyyy)
+    var day3= (mm3 + "/" + dd3 + "/" + yyyy)
+    var day4= (mm4 + "/" + dd4 + "/" + yyyy)
+    var day5= (mm5 + "/" + dd5 + "/" + yyyy)
 
     // display 5 day forecast header
     var h3El=$("<h3>")
