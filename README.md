@@ -1,17 +1,15 @@
 # Weather Dashboard
 
 
-
-
 ## Description
 
-
-This is a weather dasboard. Languages used for this project are HTML, Bootstrap, CSS, Javascript, and JQUery. A user will type in their city and then the browser will display current and future weather for that city.
+Weather DashBoard is a responsive web application for looking up the weather in a specifi city. A user will type in their city and then the browser will display current and future weather conditions for that city.
 
 
 ## Table of Contents
 
 * [Description](#description)
+* [Technology](#technology)
 * [User Story](#user-story)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -21,6 +19,15 @@ This is a weather dasboard. Languages used for this project are HTML, Bootstrap,
 * [Questions](#questions)
 * [Deployed Application URL](#deployed-application-URL)
 
+## Technology
+
+- HTML
+- Bootstrap
+- CSS
+- JavaScript
+- jQuery
+- AJAX
+- Open Weather Map API
 
 
 ## User Story
@@ -37,8 +44,7 @@ There are no installation steps. Just begin by loading the browser and typing in
 
 ## Usage
 
-
-To start, type in a city name in the text input area. Click on search to display the current weather conditions for that city. Below the current weather display will show the 5 day weather forecast.
+The deployed application link will take you to the homepage. To start, type in a city name in the text input area. Click on search to display the current weather conditions for that city. Below the current weather display will show the 5 day weather forecast.
 
 
 ## License
@@ -67,5 +73,7 @@ For any questions, please contact kendayao at kendayao@gmail.com
 
 ## Deployed Application URL
 
+Deployed Application Link: https://kendayao.github.io/Weather-Dashboard/
+Video Demo Link: https://giphy.com/gifs/Y1BNVnPrqsDYarU6pM/fullscreen
 
-https://kendayao.github.io/Weather-Dashboard/
+<img src="" width="400" height="300">

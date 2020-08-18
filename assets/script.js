@@ -167,7 +167,7 @@ function apiCall(){
 
     // display 5 day forecast header
     var h3El=$("<h3>")
-    h3El.text("5-Day Forcast")
+    h3El.text("5-Day Forecast")
     $("#current-weather-display").append(h3El);
 
     // display date, weather icon, temperature, and humidity for 5 day forecast
