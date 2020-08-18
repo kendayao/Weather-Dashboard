@@ -3,7 +3,7 @@
 
 ## Description
 
-Weather DashBoard is a responsive web application for looking up the weather in a specifi city. A user will type in their city and then the browser will display current and future weather conditions for that city.
+Weather DashBoard is a responsive web application for looking up the weather conditions in a specific city. A user will type in their city and then the browser will display current and future weather conditions for that city.
 
 
 ## Table of Contents
