@@ -74,6 +74,7 @@ For any questions, please contact kendayao at kendayao@gmail.com
 ## Deployed Application URL
 
 Deployed Application Link: https://kendayao.github.io/Weather-Dashboard/
+
 Video Demo Link: https://giphy.com/gifs/Y1BNVnPrqsDYarU6pM/fullscreen
 
-<img src="" width="400" height="300">
+<img src="assets/images/weather.png" width="400" height="250">
